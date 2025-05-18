@@ -1,0 +1,235 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Agenda de Contatos API",
+        "description": "Documentação da API de contatos criada com Laravel e Swagger",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://my-default-host.com",
+            "description": "API Laravel local"
+        }
+    ],
+    "paths": {
+        "/api/contacts": {
+            "get": {
+                "tags": [
+                    "Contatos"
+                ],
+                "summary": "Listar contatos",
+                "operationId": "0f9efb5609dbb039b35ecafb28e492a2",
+                "responses": {
+                    "200": {
+                        "description": "Lista de contatos paginada"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Contatos"
+                ],
+                "summary": "Criar novo contato",
+                "operationId": "a3b0baf957a16c1ed505f2e8985c254c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreContactRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Contato criado com sucesso"
+                    }
+                }
+            }
+        },
+        "/api/contacts/{id}": {
+            "get": {
+                "tags": [
+                    "Contatos"
+                ],
+                "summary": "Visualizar um contato específico",
+                "operationId": "4b37f4c90f5cd7974a09bd688ac4d3dd",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Dados do contato"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Contatos"
+                ],
+                "summary": "Atualizar um contato",
+                "operationId": "554514967b71c75698b6cef012de4420",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateContactRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Contato atualizado com sucesso"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Contatos"
+                ],
+                "summary": "Excluir um contato",
+                "operationId": "3a78f2af1871a21a2b5a492134d72017",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Contato removido com sucesso"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "StoreContactRequest": {
+                "required": [
+                    "name",
+                    "email",
+                    "phone",
+                    "zip_code",
+                    "state",
+                    "city",
+                    "neighborhood",
+                    "address",
+                    "number"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "João Silva"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "example": "joao@email.com"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "example": "11999999999"
+                    },
+                    "zip_code": {
+                        "type": "string",
+                        "example": "01001-000"
+                    },
+                    "state": {
+                        "type": "string",
+                        "example": "SP"
+                    },
+                    "city": {
+                        "type": "string",
+                        "example": "São Paulo"
+                    },
+                    "neighborhood": {
+                        "type": "string",
+                        "example": "Centro"
+                    },
+                    "address": {
+                        "type": "string",
+                        "example": "Rua Teste"
+                    },
+                    "number": {
+                        "type": "string",
+                        "example": "123"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateContactRequest": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "João Atualizado"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "example": "joao@novoemail.com"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "example": "11988887777"
+                    },
+                    "zip_code": {
+                        "type": "string",
+                        "example": "01002-000"
+                    },
+                    "state": {
+                        "type": "string",
+                        "example": "SP"
+                    },
+                    "city": {
+                        "type": "string",
+                        "example": "Campinas"
+                    },
+                    "neighborhood": {
+                        "type": "string",
+                        "example": "Centro Novo"
+                    },
+                    "address": {
+                        "type": "string",
+                        "example": "Rua Nova"
+                    },
+                    "number": {
+                        "type": "string",
+                        "example": "456"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Contatos",
+            "description": "Contatos"
+        }
+    ]
+}
