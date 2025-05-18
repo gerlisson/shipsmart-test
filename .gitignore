@@ -1,0 +1,24 @@
+echo "/database/*.sqlite" >> .gitignore
+
+api/.DS_Store
+api/.phpunit.cache
+api/public/build
+api/public/hot
+api/public/storage
+api/storage/*.key
+api/storage/seeded.flag
+api/vendor
+api/.env
+api/.env.backup
+api/.env.production
+api/.phpunit.result.cache
+api/Homestead.json
+api/Homestead.yaml
+api/auth.json
+api/npm-debug.log
+api/yarn-error.log
+.fleet
+.idea
+.vscode
+
+front/node_modules

@@ -3,6 +3,12 @@ set -e
 
 cd /var/www/html/api
 
+# Instala dependências se não existirem
+if [ ! -d vendor ]; then
+  echo "Instalando dependências do Composer..."
+  composer install
+fi
+
 # Garante que a base existe (ou zera no primeiro load)
 if [ -f database/database.sqlite ]; then
   echo "Zerando banco SQLite..."
